@@ -22,7 +22,7 @@ class ShopPage extends StatelessWidget {
         ],
         centerTitle: true,
         title: Text(
-          'Minimal Shop',
+          'Shop',
           style: TextStyle(
             color: Theme.of(context).colorScheme.inverseSurface,
           ),

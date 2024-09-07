@@ -35,7 +35,7 @@ class MyProductTile extends StatelessWidget {
                 ),
               );
             },
-            child: const Text("Add to cart"),
+            child: const Text("Add"),
           ),
         ],
       ),
