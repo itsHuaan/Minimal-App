@@ -44,13 +44,20 @@ class MyCartTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String price = item.price.toString();
-    return ListTile(
-      leading: Image.asset(item.imagePath),
-      title: Text(item.name),
-      subtitle: Text('\$$price'),
-      trailing: IconButton(
-        onPressed: () => removeFromCart(context, item),
-        icon: const Icon(Icons.remove_rounded),
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: ListTile(
+        leading: Image.asset(item.imagePath),
+        title: Text(item.name),
+        subtitle: Text('\$$price'),
+        trailing: IconButton(
+          onPressed: () => removeFromCart(context, item),
+          icon: const Icon(Icons.remove_rounded),
+        ),
       ),
     );
   }
