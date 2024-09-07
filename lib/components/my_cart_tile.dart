@@ -16,13 +16,16 @@ class MyCartTile extends StatelessWidget {
       builder: (context) => AlertDialog(
         content: const Text("Remove this item from your cart?"),
         actions: [
-          MaterialButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text("Cancel"),
+            child: Text(
+              "Cancel",
+              style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+            ),
           ),
-          MaterialButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
               context.read<Shop>().removeFromCart(item);
@@ -34,7 +37,10 @@ class MyCartTile extends StatelessWidget {
                 ),
               );
             },
-            child: const Text("Remove"),
+            child: Text(
+              "Remove",
+              style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+            ),
           ),
         ],
       ),

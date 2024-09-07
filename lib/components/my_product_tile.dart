@@ -17,13 +17,16 @@ class MyProductTile extends StatelessWidget {
       builder: (context) => AlertDialog(
         content: const Text("Add this item to your cart?"),
         actions: [
-          MaterialButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text("Cancel"),
+            child: Text(
+              "Cancel",
+              style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+            ),
           ),
-          MaterialButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
               context.read<Shop>().addToCart(product);
@@ -35,7 +38,10 @@ class MyProductTile extends StatelessWidget {
                 ),
               );
             },
-            child: const Text("Add"),
+            child: Text(
+              "Add",
+              style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+            ),
           ),
         ],
       ),
