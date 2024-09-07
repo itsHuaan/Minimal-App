@@ -8,10 +8,15 @@ import 'package:minimal_shop/themes/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => Shop(),
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Shop()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,12 +24,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return SafeArea(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Minimal Shop',
         home: const IntroPage(),
-        theme: darkMode,
+        theme: themeProvider.lightMode,
+        darkTheme: themeProvider.darkMode,
+        themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
         routes: {
           '/intro_page': (context) => const IntroPage(),
           '/shop_page': (context) => const ShopPage(),

@@ -60,7 +60,10 @@ class CartPage extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                         onPressed: payButtonPressed,
-                        icon: const Icon(Icons.shopping_cart_checkout_rounded),
+                        icon: const Icon(
+                          Icons.shopping_cart_checkout_rounded,
+                          size: 30,
+                        ),
                       )
                     ],
                   ),
