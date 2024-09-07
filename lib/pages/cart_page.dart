@@ -11,6 +11,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = context.watch<Shop>().cart;
+    String totalPrice = context.watch<Shop>().totalPrice.toStringAsFixed(2);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,6 +29,7 @@ class CartPage extends StatelessWidget {
           : Column(
               children: [
                 Expanded(
+                  flex: 15,
                   child: ListView.builder(
                     itemCount: cart.length,
                     itemBuilder: (context, index) {
@@ -48,7 +50,7 @@ class CartPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Total price: \$",
+                        "Total price: \$$totalPrice",
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.inverseSurface,
                           fontWeight: FontWeight.bold,

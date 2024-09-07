@@ -26,4 +26,6 @@ class Shop extends ChangeNotifier {
     _cart.remove(product);
     notifyListeners();
   }
+
+  double get totalPrice => _cart.fold(0, (sum, item) => sum + item.price);
 }
