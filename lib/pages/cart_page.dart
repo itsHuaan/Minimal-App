@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_shop/components/my_app_bar.dart';
 import 'package:minimal_shop/components/my_cart_tile.dart';
 import 'package:minimal_shop/models/shop.dart';
 import 'package:provider/provider.dart';
@@ -13,17 +14,7 @@ class CartPage extends StatelessWidget {
     final cart = context.watch<Shop>().cart;
     String totalPrice = context.watch<Shop>().totalPrice.toStringAsFixed(2);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Cart',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.inverseSurface,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        foregroundColor: Theme.of(context).colorScheme.inverseSurface,
-      ),
+      appBar: const MyAppBar(title: 'Cart'),
       body: cart.isEmpty
           ? const Center(child: Text("You haven't added anything to your cart"))
           : Column(

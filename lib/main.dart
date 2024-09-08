@@ -25,21 +25,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-    return SafeArea(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Minimal Shop',
-        home: const IntroPage(),
-        theme: themeProvider.lightMode,
-        darkTheme: themeProvider.darkMode,
-        themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-        routes: {
-          '/intro_page': (context) => const IntroPage(),
-          '/shop_page': (context) => const ShopPage(),
-          '/cart_page': (context) => const CartPage(),
-          '/profile_page': (context) => const ProfilePage(),
-        },
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Minimal Shop',
+      home: const IntroPage(),
+      theme: themeProvider.lightMode,
+      darkTheme: themeProvider.darkMode,
+      themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      routes: {
+        '/intro_page': (context) => const IntroPage(),
+        '/shop_page': (context) => const ShopPage(),
+        '/cart_page': (context) => const CartPage(),
+        '/profile_page': (context) => const ProfilePage(),
+      },
     );
   }
 }

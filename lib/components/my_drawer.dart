@@ -28,7 +28,10 @@ class MyDrawer extends StatelessWidget {
           MyDrawerItem(
             text: "Profile",
             icon: Icons.person,
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/profile_page');
+            },
           ),
           MyDrawerItem(
             text: "Shop",

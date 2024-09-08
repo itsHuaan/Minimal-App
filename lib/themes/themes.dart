@@ -21,7 +21,7 @@ class ThemeProvider extends ChangeNotifier {
     ),
   );
 
-  bool isDarkMode = false;
+  bool isDarkMode = true;
   ThemeData get currentTheme => isDarkMode ? darkMode : lightMode;
 
   void changeTheme() {

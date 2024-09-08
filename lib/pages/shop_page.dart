@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_shop/components/my_app_bar.dart';
 import 'package:minimal_shop/components/my_drawer.dart';
 import 'package:minimal_shop/components/my_product_tile.dart';
 import 'package:minimal_shop/components/my_text_field.dart';
@@ -13,14 +14,9 @@ class ShopPage extends StatelessWidget {
     final products = context.watch<Shop>().shop;
     final cart = context.watch<Shop>().cart;
     return Scaffold(
-      appBar: AppBar(
+      appBar: MyAppBar(
+        title: 'Shop',
         actions: [
-          // IconButton(
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, '/cart_page');
-          //   },
-          //   icon: const Icon(Icons.shopping_cart_rounded),
-          // ),
           Stack(
             children: [
               IconButton(
@@ -46,7 +42,7 @@ class ShopPage extends StatelessWidget {
                     cart.length.toString(), // Replace with dynamic count
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 9,
+                      fontSize: 8,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
@@ -56,23 +52,21 @@ class ShopPage extends StatelessWidget {
             ],
           ),
         ],
-        centerTitle: true,
-        title: Text(
-          'Shop',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.inverseSurface,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        foregroundColor: Theme.of(context).colorScheme.inverseSurface,
       ),
       drawer: const MyDrawer(),
       body: ListView(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 10.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 10.0),
             child: Center(
-              child: MyTextField(),
+              child: MyTextField(
+                hintText: 'Search',
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search_rounded),
+                ),
+                borderRadius: 50.0,
+              ),
             ),
           ),
           SizedBox(

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
-  const MyTextField({super.key});
+  final String? hintText;
+  final Widget? suffixIcon;
+  final double borderRadius;
+  const MyTextField({
+    super.key,
+    this.suffixIcon,
+    this.hintText,
+    this.borderRadius = 4.0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,38 +17,35 @@ class MyTextField extends StatelessWidget {
       cursorRadius: const Radius.circular(100.0),
       cursorColor: Theme.of(context).colorScheme.inverseSurface,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
-        hintText: 'Search',
+        contentPadding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
+        hintText: hintText,
         hintStyle: const TextStyle(
           color: Colors.grey,
         ),
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.search_rounded),
-        ),
+        suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
       style: TextStyle(
