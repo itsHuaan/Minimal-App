@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shop/components/my_drawer_item.dart';
-import 'package:minimal_shop/themes/themes.dart';
+import 'package:minimal_shop/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class MyDrawer extends StatelessWidget {
