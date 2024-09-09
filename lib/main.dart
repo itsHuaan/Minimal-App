@@ -5,7 +5,6 @@ import 'package:minimal_shop/pages/intro_page.dart';
 import 'package:minimal_shop/pages/profile_page.dart';
 import 'package:minimal_shop/pages/shop_page.dart';
 import 'package:minimal_shop/themes/theme_provider.dart';
-import 'package:minimal_shop/themes/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -30,9 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Minimal Shop',
       home: const IntroPage(),
-      theme: lightMode,
-      darkTheme: darkMode,
-      themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      theme: themeProvider.currentTheme,
       routes: {
         '/intro_page': (context) => const IntroPage(),
         '/shop_page': (context) => const ShopPage(),
